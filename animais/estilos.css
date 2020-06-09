@@ -1,0 +1,148 @@
+
+/*
+rA9=P+wq6IgxFn4l
+div>a{
+    margin-top: 60px;
+}
+*/
+#gostei{
+    background-color: green;
+    margin-top: 10px;
+}
+#gostei:hover{
+    background-color: rgb(7, 90, 7);
+}
+.subtit{
+    font-size: 25px;
+}
+html{
+    max-width: 100%;
+}
+main{
+  align-items: center !important;
+  
+}
+
+.ongs{
+    margin: 10px;
+}
+
+.mb-3{
+    margin-top: 17px;
+    max-width: 100%;
+    max-height: 100%;
+}
+iframe{
+    width: 100% !important;
+    margin-top: 20px;
+}
+.carousel{
+    max-width: 1047px;
+    align-content: center;
+}
+button:hover{
+    background-color: rgb(246, 250, 8) ;}
+button{
+    color: white !important;
+}
+ 
+.form-inline{
+    margin-bottom: 12px;
+    
+
+}
+.header{
+    margin-bottom: 20px;
+    text-align: center;
+    background-color:rgb(246, 250, 8) !important ;
+    max-height: 150px;
+    
+}
+
+
+.header_area{
+    
+    padding: 20px;
+    
+    background-size: cover;
+    
+}
+
+.memu_area{
+    margin-top: 30px;
+}
+
+.memu_area nav a{
+    background-color: rgb(169, 172, 7);
+    color:white;
+    margin-bottom: 10px;
+    
+}
+  
+
+
+.memu_area nav a:hover{
+    background-color: rgb(109, 110, 1) ;
+}
+
+
+.active{
+    background-color: rgb(109, 110, 1) !important;
+}
+
+.logo{
+    width: 150px;
+}
+#lateral{
+    align-items: left;
+}
+
+
+
+.main_area{
+    margin-bottom: 20px;
+}
+
+.footer{
+    margin-top: 10px;
+    background: rgb(246, 250, 8);
+    color: white;
+}
+.footer_area{
+    padding: 20px;
+    text-align: center  ;
+}
+
+.modal-body img{ 
+    width: 100%;
+}
+.row{
+    margin-bottom: 20px;
+}
+
+
+@media screen and (max-width: 750px) {
+
+    
+    .header{
+        max-height: 400px;
+    }
+}
+@media screen and (max-width: 995px) {
+
+    
+    .tirar{
+        display: none;
+    }
+    .card{
+        margin-bottom: 20px;
+        
+    }
+    
+    
+}
+@media screen and (min-width: 770px) and (max-width:994px){
+    .cardtirar{
+        display: none !important ;
+    }
+}

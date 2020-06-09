@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title>Blog Dog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="estilos.css">
+    <script src="index.js"></script>
+    
+</head>
+
+
+<body > 
+
+    <header class=" header">
+
+        <div class="row tester">
+
+            <div class="col-12 header_area">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-2 " id="logo-area">
+                        <img src="imgs/logo.png " class="logo">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-10 memu_area">
+                        <nav class="nav nav-pills flex-column flex-sm-row">
+
+                            <a class="flex-sm-fill text-sm-center nav-link " src="index.html" href="index.html">Home</a>
+                            <a class="flex-sm-fill text-sm-center nav-link active" src="denuncias.html" href="denuncias.html">Denúncias</a>
+                            <a class="flex-sm-fill text-sm-center nav-link" src="relatos.html" href="relatos.html">Relatos</a>
+                            <a class="flex-sm-fill text-sm-center nav-link" href="dicas.html">Dicas</a>
+                            <a class="flex-sm-fill text-sm-center nav-link" src="ongs.html" href="ongs.html">ONGs parceiras</a>
+                            
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="container main">
+
+        <div class="row">
+
+            <div class="col-12">
+
+                <!--Duas colunas do carrosel e dos botões-->
+             
+
+                <!--Card de anuncio-->
+
+               <h1> Denúncias </h1>
+
+               <form id="form1" action="https://formspree.io/blogdog000@gmail.com"method="POST">
+                <div class="form-group">
+                  <label id="conf " for="exampleFormControlInput7">Informe seu endereço de email</label>
+                  <input name="_replyto" type="email" class="form-control" id="exampleFormControlInput7" placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect8">Selecione seu tipo de denúncia</label>
+                  <select name="Tipo" class="form-control" id="exampleFormControlSelect8">
+                    <option>Abandono</option>
+                    <option>Agressão</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect9">Example multiple select</label>
+                  <select name="tipo2" multiple class="form-control" id="exampleFormControlSelect9">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea10">Digite aqui informações complementares:</label>
+                  <textarea name="message" class="form-control" id="exampleFormControlTextarea10" rows="3"></textarea>
+                </div>
+                <input class="btn btn-warning" id ="bt" type="submit" value="Enviar">
+                
+              </form>
+              <script>
+                function salvarForm(){
+           if (localStorage.Quantidade_de_denúncias) {
+              localStorage.Quantidade_de_denúncias = Number(localStorage.Quantidade_de_denúncias)+1;
+           } else {
+              localStorage.Quantidade_de_denúncias = 1;
+           }
+           
+           cad5 =  document.getElementById('exampleFormControlInput7').value + ';tipo_Denuncia: ' + document.getElementById('exampleFormControlSelect8').value + ';select: ' + document.getElementById('exampleFormControlSelect9').value+ ';Infos: ' + document.getElementById('exampleFormControlTextarea10').value;
+           localStorage.setItem("formulárioDenúncia_"+localStorage.Quantidade_de_denúncias, JSON.stringify(cad5));
+        }
+            
+              
+            </script>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+
+        <div class="row">
+
+            <div class="col-12 footer_area">
+                Blog Dog - Todos os direitos reservados - 2020
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title>Blog Dog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="estilos.css">
+    <script src="index2.js"></script>
+
+</head>
+
+
+<body>
+
+    <header class=" header">
+
+        <div class="row tester">
+
+            <div class="col-12 header_area">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-2 " id="logo-area">
+                        <img src="imgs/logo.png " class="logo">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-10 memu_area">
+                        <nav class="nav nav-pills flex-column flex-sm-row">
+
+                            <a class="flex-sm-fill text-sm-center nav-link " src="index.html" href="index.html">Home</a>
+                            <a class="flex-sm-fill text-sm-center nav-link"  src="denuncias.html" href="denuncias.html">Denúncias</a>
+                            <a class="flex-sm-fill text-sm-center nav-link"  src="relatos.html" href="relatos.html">Relatos</a>
+                            <a class="flex-sm-fill text-sm-center nav-link" href="dicas.html">Dicas</a>
+                            <a class="flex-sm-fill text-sm-center nav-link " href="ongs.html">ONGs parceiras</a>
+                            
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="container main">
+
+        <div class="row">
+
+            <div class="col-12">
+
+                <!--Duas colunas do carrosel e dos botões-->
+             
+
+                <!--Card de anuncio-->
+
+                <form id="adocao" action="https://formspree.io/blogdog000@gmail.com"method="POST">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput3">Informe seu endereço de email</label>
+                      <input name="email"type="email" class="form-control" id="exampleFormControlInput3" placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect4">Você aceita os termos de adoção?</label>
+                      <select name="aceitar"class="form-control" id="exampleFormControlSelect4">
+                        <option>Não</option>
+                        <option>Sim</option>
+                    
+                      </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exampleFormControlInput5">Informe seu nome completo</label>
+                        <input name="nome"type="name" class="form-control" id="exampleFormControlInput5">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput6">Informe seu CPF</label>
+                        <input name="CPF"  class="form-control" id="exampleFormControlInput6">
+                      </div>
+                      <input class="btn btn-warning" id ="bt1" type="submit" value="Adotar">
+                  </form>
+                  <script>
+                      function salvarForm(){
+           if (localStorage.Quantidade_de_Adoções) {
+              localStorage.Quantidade_de_Adoções = Number(localStorage.Quantidade_de_Adoções)+1;
+           } else {
+              localStorage.Quantidade_de_Adoções = 1;
+           }
+           
+           cad4 =  document.getElementById('exampleFormControlInput3').value + ';Termos: ' + document.getElementById('exampleFormControlSelect4').value ;
+           localStorage.setItem("formulárioAdoção_"+localStorage.Quantidade_de_Adoções, JSON.stringify(cad4));
+        }
+                   
+                  
+                </script>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+
+        <div class="row">
+
+            <div class="col-12 footer_area">
+                Blog Dog - Todos os direitos reservados - 2020
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>

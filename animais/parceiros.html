@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title>Blog Dog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="estilos.css">
+    <script src="index.js"></script>
+
+</head>
+
+
+<body>
+
+    <header class=" header">
+
+        <div class="row tester">
+
+            <div class="col-12 header_area">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-2 " id="logo-area">
+                        <img src="imgs/logo.png " class="logo">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-10 memu_area">
+                        <nav class="nav nav-pills flex-column flex-sm-row">
+
+                            <a class="flex-sm-fill text-sm-center nav-link " src="index.html" href="index.html">Home</a>
+                            <a class="flex-sm-fill text-sm-center nav-link"  src="denuncias.html" href="denuncias.html">Denúncias</a>
+                            <a class="flex-sm-fill text-sm-center nav-link"  src="relatos.html" href="relatos.html">Relatos</a>
+                            <a class="flex-sm-fill text-sm-center nav-link" href="dicas.html">Dicas</a>
+                            <a class="flex-sm-fill text-sm-center nav-link active" href="ongs.html">ONGs parceiras</a>
+                            
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="container main">
+
+        <div class="row">
+
+            <div class="col-12">
+
+                <!--Duas colunas do carrosel e dos botões-->
+             
+
+                <!--Card de anuncio-->
+                <script>
+                
+                    function salvarForm(){
+           if (localStorage.Quantidade_de_formulárioParceiros) {
+              localStorage.Quantidade_de_formulárioParceiros = Number(localStorage.Quantidade_de_formulárioParceiros)+1;
+           } else {
+              localStorage.Quantidade_de_formulárioParceiros = 1;
+           }
+           
+           cad =  document.getElementById('exampleFormControlInput11').value + ';Nome: ' + document.getElementById('exampleFormControlInput12').value + ';Número: ' + document.getElementById('exampleFormControlInput13').value+ ';Nome_ONG: ' + document.getElementById('exampleFormControlInput14').value+ ';Endereço_ONG ' + document.getElementById('exampleFormControlInput15').value+ ';Infos: ' + document.getElementById('exampleFormControlTextarea16').value;
+           localStorage.setItem("formulárioParceiros_"+localStorage.Quantidade_de_formulárioParceiros, JSON.stringify(cad));
+        }
+    
+                          /*
+                        exampleFormControlInput11.value = localStorage.getItem('e-maill');
+                        exampleFormControlInput12.value = localStorage.getItem('nome2');
+                        exampleFormControlInput13.value = localStorage.getItem('número');
+                        exampleFormControlInput14.value = localStorage.getItem('nome_ong');
+                        exampleFormControlInput15.value = localStorage.getItem('endereço_ong');
+                        exampleFormControlTextarea16.value = localStorage.getItem('infos');
+                
+                        
+                        form2.onsubmit = (evento) => {
+                          localStorage.setItem('Formulário_ONGs');
+                          localStorage.setItem('e-maill',exampleFormControlInput11.value);
+                          localStorage.setItem('nome2',exampleFormControlInput12.value);
+                          localStorage.setItem('número',exampleFormControlInput13.value);
+                          localStorage.setItem('nome_ong',exampleFormControlInput14.value);
+                          localStorage.setItem('endereço_ong',exampleFormControlInput15.value);
+                          localStorage.setItem('infos',exampleFormControlInput16.value);
+                          
+                          
+                        };
+                      */
+                    </script>
+               
+                <form id="form2" method="POST" action="https://formspree.io/blogdog000@gmail.com">
+                    <div class="form-group">
+                        <label id="conf " for="exampleFormControlInput11">Informe seu endereço de email:</label>
+                        <input name="_replyto" type="email" class="form-control" id="exampleFormControlInput11" placeholder="name@example.com">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput12">Informe seu nome completo:</label>
+                        <input type="name" class="form-control" id="exampleFormControlInput12">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput13">Informe seu número:</label>
+                        <input type="Telefone" class="form-control" id="exampleFormControlInput13"placeholder="Ex.: (00) 00000-0000">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput14">Informe o nome da ONG:</label>
+                        <input type="nomeONG" class="form-control" id="exampleFormControlInput14">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput15">Informe o endereço da sua ONG:</label>
+                        <input type="name" class="form-control" id="exampleFormControlInput15" placeholder="Ex.: Rua/nº/Bairro/Cidade/Estado">
+                      </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlTextarea16">Digite aqui informações complementares:</label>
+                      <textarea name="message" class="form-control" id="exampleFormControlTextarea16" rows="3"></textarea>
+                    </div>
+                    <input class="btn btn-warning" id ="bt" type="submit" value="Enviar">
+                  </form>
+                 
+                    </div>
+                    
+            </div>
+            
+        </div>
+
+    </main>
+
+    <footer class="footer">
+
+        <div class="row">
+
+            <div class="col-12 footer_area">
+                Blog Dog - Todos os direitos reservados - 2020
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>

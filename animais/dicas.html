@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title>Blog Dog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="estilos.css">
+    <script src="index.js"></script>
+    
+</head>
+
+
+<body>
+
+    <header class=" header">
+
+        <div class="row tester">
+
+            <div class="col-12 header_area">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-2 " id="logo-area">
+                        <img src="imgs/logo.png " class="logo">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-10 memu_area">
+                        <nav class="nav nav-pills flex-column flex-sm-row">
+
+                            <a class="flex-sm-fill text-sm-center nav-link "  href="index.html">Home</a>
+                            <a class="flex-sm-fill text-sm-center nav-link"  href="denuncias.html">Denúncias</a>
+                            <a class="flex-sm-fill text-sm-center nav-link "  href="relatos.html">Relatos</a>
+                            <a class="flex-sm-fill text-sm-center nav-link active" href="#">Dicas</a>
+                            <a class="flex-sm-fill text-sm-center nav-link"   href="ongs.html">ONGs parceiras</a>
+                            
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="container main">
+
+        <div class="row">
+
+            <div class="col-12">
+
+                <!--Duas colunas do carrosel e dos botões-->
+             
+
+                <!--Card de anuncio-->
+
+               <h1>Mural de dicas </h1>
+               <div class="row">
+
+                
+
+                
+
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
+
+                    <div class="card">
+                        <img src="imgs/2.jpg" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">Scooby
+                            </h5>
+                            <p class="card-text">Idade: <br> Raça: <br> Obs:</p>
+                            
+                        </div>
+                    </div>
+      <div>                  
+     
+     
+     
+</div> 
+
+<script>
+         
+           
+    function clicked() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api.countapi.xyz/hit/sitedoblogdog.000webhostapp.com/awesomeclick");
+    xhr.responseType = "json";
+    xhr.onload = function() {
+    alert(`Essa dica já foi curtida ${this.response.value} vezes!`);
+    this.response.value = localStorage.getItem('curtidas');
+    localStorage.setItem('curtidas',this.response.value);
+    }
+    xhr.send();
+    
+    
+ };
+ function salvarForm(){
+ if (localStorage.Quantidade_de_dicas) {
+              localStorage.Quantidade_de_dicas = Number(localStorage.Quantidade_de_dicas)+1;
+           } else {
+              localStorage.Quantidade_de_dicas = 1;
+           }
+           
+           cad3 =  document.getElementById('exampleFormControlTextarea1').value;
+           localStorage.setItem("Dica_"+localStorage.Quantidade_de_dicas, JSON.stringify(cad3));
+        }
+ </script>
+ <button name="gostei"class="btn btn-success"id="gostei" onclick="clicked()">Gostei</button>
+ 
+</div>
+
+            </div>
+               <form id="dica"method="POST" action="https://formspree.io/blogdog000@gmail.com">
+               
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Tem alguma boa dica? Digite-a aqui e compartilharemos ela!</label>
+                  <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <input class="btn btn-warning" id ="bt" type="submit" value="Enviar">
+              </form>
+              
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <footer class="footer">
+
+        <div class="row">
+
+            <div class="col-12 footer_area">
+                Blog Dog - Todos os direitos reservados - 2020
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>
+
