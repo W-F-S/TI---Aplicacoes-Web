@@ -15,6 +15,10 @@ div>a{
 .subtit{
     font-size: 25px;
 }
+.subtit2{
+    font-size: 25px;
+    margin-top: 20px;
+}
 html{
     max-width: 100%;
 }
@@ -106,7 +110,7 @@ button{
 .footer{
     margin-top: 10px;
     background: rgb(246, 250, 8);
-    color: white;
+    color:rgb(75, 17, 17);
 }
 .footer_area{
     padding: 20px;

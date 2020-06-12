@@ -68,30 +68,19 @@
            }
                  
                </script>
-               <h1> Relatos </h1>
+               <h1> Adoção </h1>
 
-               <form id="relatos"method="POST" action="https://formspree.io/blogdog000@gmail.com">
-                <div class="form-group row">
-                    
-                    <div class="col-sm-8">
-                        <label for="inputNome">Nome (*)</label>
-                        <input type="text" class="form-control" id="inputNome" required placeholder="Informe o seu nome completo ">
-                    </div>
-                    <div class="col-sm-4">
-                        <label for="inputTelefone">Telefone (*)</label>
-                        <input type="text" class="form-control" id="inputTelefone" required placeholder="Ex.: (00) 00000-0000">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    
-                    <div class="col-sm-7">
-                        <label for="inputEmail">E-mail (*)</label>
-                        <input type="email" class="form-control" id="inputEmail" required placeholder="name@example.com">
-                    </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleFormControlTextarea2">Digite aqui seu relato</label>
-                  <textarea name="message" class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+               <form id="relatos"method="POST" action="https://formspree.io/blogdog000@gmail.com" enctype="multipart/form-data">
+               
+                <div class="form-group col-12 col-sm-12 col-md-8 col-lg-8">
+                    <label for="exampleFormControlInput5">Informe seu nome completo</label>
+                    <input name="nome"type="name" class="form-control" id="exampleFormControlInput5">
+                  </div>
+                <div>
+                    <label>
+                        Mande aqui uma foto do animalzinho:<br>
+                        <input type="file" name="upload">
+                      </label>
                 </div>
                 <input class="btn btn-warning" id ="bt" type="submit" value="Enviar">
               </form>
