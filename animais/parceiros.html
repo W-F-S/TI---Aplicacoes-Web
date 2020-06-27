@@ -11,11 +11,59 @@
 
     <link rel="stylesheet" href="estilos.css">
     <script src="index.js"></script>
+<<<<<<< HEAD
 
 </head>
 
 
 <body>
+=======
+    <script src="login.js"></script>
+    <script src="meuPerfil.js"></script>
+    <script>
+        
+        // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+        if (!usuarioCorrente.login) {
+            window.location.href = LOGIN_URL;
+        }
+
+        function exibeUsuarios() {
+            
+            // Popula a tabela com os registros do banco de dados
+            let listaUsuarios = '';
+            for (i = 0; i < db_usuarios.usuarios.length; i++) {
+                let usuario = db_usuarios.usuarios[i];
+                listaUsuarios += `<tr><td scope="row">${usuario.nome}</td><td>${usuario.login}</td><td>${usuario.email}</td></tr>`;
+            }
+
+            // Substitui as linhas do corpo da tabela
+            document.getElementById("table-usuarios").innerHTML = listaUsuarios
+
+        }
+
+        function initPage() {
+
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', logoutUser);
+
+            
+        }
+
+        // Associa ao evento de carga da página a função para verificar se o usuário está logado
+        window.addEventListener('load', initPage);
+        function initPage() {
+
+// Associa a função de Perfil ao botão
+document.getElementById('btn_perfil').addEventListener('click', Perfil);
+
+
+}
+    </script>
+</head>
+
+
+<body onload="init()">
+>>>>>>> versao 2
 
     <header class=" header">
 
@@ -29,12 +77,26 @@
                     <div class="col-12 col-sm-12 col-md-8 col-lg-10 memu_area">
                         <nav class="nav nav-pills flex-column flex-sm-row">
 
+<<<<<<< HEAD
                             <a class="flex-sm-fill text-sm-center nav-link " src="index.html" href="index.html">Home</a>
+=======
+                            <a class="flex-sm-fill text-sm-center nav-link " src="index.html" href="home.html">Home</a>
+>>>>>>> versao 2
                             <a class="flex-sm-fill text-sm-center nav-link"  src="denuncias.html" href="denuncias.html">Denúncias</a>
                             <a class="flex-sm-fill text-sm-center nav-link"  src="relatos.html" href="relatos.html">Relatos</a>
                             <a class="flex-sm-fill text-sm-center nav-link" href="dicas.html">Dicas</a>
                             <a class="flex-sm-fill text-sm-center nav-link active" href="ongs.html">ONGs parceiras</a>
+<<<<<<< HEAD
                             
+=======
+                            <img class="flex-sm-fill text-sm-center nav-link logout" id="btn_perfil"
+                                src="imgs/user.png " >
+                        </nav>
+                        <nav class="nav nav-pills flex-column flex-sm-row">
+                            <img class="flex-sm-fill text-sm-center nav-link logout" id="btn_logout"
+                                src="imgs/sair.png ">
+
+>>>>>>> versao 2
                         </nav>
                     </div>
                 </div>
@@ -55,6 +117,7 @@
              
 
                 <!--Card de anuncio-->
+<<<<<<< HEAD
                 <script>
                 
                     function salvarForm(){
@@ -118,6 +181,275 @@
                     </div>
                     <input class="btn btn-warning" id ="bt" type="submit" value="Enviar">
                   </form>
+=======
+                
+                <div class="row">
+                    <div id="msg" class="col-sm-10 offset-sm-1 ">
+                        <!--<div class="alert alert-warning">parceiro não encontrado.</div>-->
+                    </div>
+                </div>
+        
+                <div class="row">
+        
+                    <div class="col-12">
+        
+                        <!--Duas colunas do carrosel e dos botões-->
+        
+        
+                        <!--Card de anuncio-->
+        
+                        <h1> Parceiros </h1>
+        
+                        <form id="form-parceiro">
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <label for="inputId">ID</label>
+                                    <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+                                </div>
+                                
+                            </div>
+                            <div class="form-group row">
+        
+                                <div class="col-sm-8">
+                                    <label for="inputNome">Nome (*)</label>
+                                    <input type="text" class="form-control" id="inputNome" required
+                                        placeholder="Informe seu nome">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="inputTelefone">Telefone (*)</label>
+                                    <input type="text" class="form-control" id="inputTelefone" required
+                                        placeholder="Ex.: (00) 00000-0000">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+        
+                                <div class="col-sm-8">
+                                    <label for="inputEmail">E-mail (*)</label>
+                                    <input type="email" class="form-control" id="inputEmail" required
+                                        placeholder="name@example.com">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="inputCidade">Cidade (*)</label>
+                                    <input type="text" class="form-control" id="inputCidade" required
+                                        placeholder="Informe a sua cidade ">
+                                </div>
+                            </div>
+                            
+        
+        
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                <label for="exampleFormControlInput14">Informe o nome da ONG (*)</label>
+                        <input type="text" class="form-control" id="inputOng" required placeholder="Informe o nome da sua ONG "></div>
+                                <div class="col-sm-12">
+                                    <label for="inputSite">Informações complementares</label>
+                                    <input type="text" class="form-control" id="inputSite" placeholder="Campo opcional ">
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <small>(*) Campos obrigatórios</small>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <input type="button" class="btn btn-success" id="btnInsert" value="Cadastrar">
+                                    <input type="button" class="btn btn-warning" id="btnUpdate" value="Alterar cadastro">
+                                    <input type="button" class="btn btn-danger" id="btnDelete" value="Cancelar Cadastro">
+                                    
+        
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="grid-parceiros" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Telefone</th>
+                                            <th scope="col">E-mail</th>
+                                            <th scope="col">Cidade</th>
+                                            <th scope="col">Nome da ONG</th> 
+                                            <th scope="col">Informações complementares</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-parceiros">
+                                        <tr>
+                                            <td scope="row">1</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                    <script src="app2.js"></script>
+                    <script>
+                        function exibeParceiro() {
+                            // Remove todas as linhas do corpo da tabela
+                            $("#table-parceiros").html("");
+        
+                            // Popula a tabela com os registros do banco de dados
+                            if (usuarioCorrente.login == 'admin') {
+                                for (i = 0; i < db.data.length; i++) {
+                                    let parceiro = db.data[i];
+                                    $("#table-parceiros").append(`<tr><td scope="row">${parceiro.id}</td>
+                                                            <td>${parceiro.nome}</td>
+                                                            <td>${parceiro.telefone}</td>
+                                                            <td>${parceiro.email}</td>
+                                                            <td>${parceiro.cidade}</td>
+                                                            <td>${parceiro.ong}</td>
+                                                            <td>${parceiro.info}</td>
+                                                        </tr>`);
+                                }
+        
+                            } else {
+                                for (i =2; i < db.data.length; i++) {
+                                    let parceiro = db.data[i];
+                                    $("#table-parceiros").append(`<tr><td scope="row">${parceiro.id}</td>
+                                                            <td>${parceiro.nome}</td>
+                                                            <td>${parceiro.telefone}</td>
+                                                            <td>${parceiro.email}</td>
+                                                            <td>${parceiro.cidade}</td>
+                                                            <td>${parceiro.ong}</td>
+                                                            <td>${parceiro.info}</td>
+                                                        </tr>`);
+                                }
+                            }
+        
+                        }
+        
+                        function init() {
+                            // Adiciona funções para tratar os eventos 
+                            $("#btnInsert").click(function () {
+                                // Verfica se o formulário está preenchido corretamente
+                                if (!$('#form-parceiro')[0].checkValidity()) {
+                                    displayMessage("Preencha o formulário corretamente.");
+                                    return;
+                                }
+        
+                                // Obtem os valores dos campos do formulário
+                                let campoNome = $("#inputNome").val();
+                                let campoTelefone = $("#inputTelefone").val();
+                                let campoEmail = $('#inputEmail').val();
+                                let campoCidade = $("#inputCidade").val();
+                                let campoOng = $('#inputOng').val();
+                                let campoInfo = $('#inputSite').val();
+                                let parceiro = {
+                                    nome: campoNome,
+                                    telefone: campoTelefone,
+                                    email: campoEmail,
+                                    cidade: campoCidade,
+                                    ong: campoOng,
+                                    info: campoInfo
+                                };
+        
+                                insertParceiro(parceiro);
+        
+                                // Reexibe os parceiros
+                                exibeParceiro();
+        
+                                // Limpa o formulario
+                                $("#form-parceiro")[0].reset();
+                            });
+        
+                            // Intercepta o click do botão Alterar
+                            $("#btnUpdate").click(function () {
+                                // Obtem os valores dos campos do formulário
+                                let campoId = $("#inputId").val();
+                                if (campoId == "") {
+                                    displayMessage("Selecione um parceiro para ser alterado.");
+                                    return;
+                                }
+                                let campoNome = $("#inputNome").val();
+                                let campoTelefone = $("#inputTelefone").val();
+                                let campoEmail = $("#inputEmail").val();
+                                let campoCidade = $("#inputCidade").val();
+                                let campoOng = $("#inputOng").val();
+                                let campoInfo = $('#inputSite').val();
+                                let parceiro = {
+                                    nome: campoNome,
+                                    telefone: campoTelefone,
+                                    email: campoEmail,
+                                    cidade: campoCidade,
+                                    ong: campoOng,
+                                    
+                                    info: campoInfo
+                                };
+        
+                                updateParceiro(parseInt(campoId), parceiro);
+        
+                                // Reexibe os parceiros
+                                exibeParceiro();
+        
+                                // Limpa o formulario
+                                $("#form-parceiro")[0].reset();
+                            });
+        
+                            // Intercepta o click do botão Excluir
+                            $("#btnDelete").click(function () {
+                                let campoId = $("#inputId").val();
+                                if (campoId == "") {
+                                    displayMessage("Selecione um parceiro a ser excluído.");
+                                    return;
+                                }
+                                deleteParceiro(parseInt(campoId));
+        
+                                // Reexibe os parceiros
+                                exibeParceiro();
+        
+                                // Limpa o formulario
+                                $("#form-parceiro")[0].reset();
+                            });
+        
+                            // Intercepta o click do botão Listar parceiros
+                            $("#btnClear").click(function () {
+                                $("#form-parceiro")[0].reset();
+                            });
+        
+                            // Oculta a mensagem de aviso após alguns segundos
+                            $('#msg').bind("DOMSubtreeModified", function () {
+                        window.setTimeout(function () {
+                            $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                                $(this).remove();
+                            });
+                        }, 5000);
+                    });
+        
+                            // Preenche o formulário quando o usuario clicar em uma linha da tabela 
+                            $("#grid-parceiros").on("click", "tr", function (e) {
+                                let linhaparceiro = this;
+                                colunas = linhaparceiro.querySelectorAll("td");
+        
+                                $("#inputId").val(colunas[0].innerText);
+                                $("#inputNome").val(colunas[1].innerText);
+                                $("#inputTelefone").val(colunas[2].innerText);
+                                $("#inputEmail").val(colunas[3].innerText);
+                                $("#inputCidade").val(colunas[4].innerText);
+                                $("#inputOng").val(colunas[5].innerText);
+                                
+                                $("#inputSite").val(colunas[6].innerText);
+                            });
+        
+                            exibeParceiro();
+                        }
+                    </script>
+        
+                </div>
+                </div>
+                
+>>>>>>> versao 2
                  
                     </div>
                     

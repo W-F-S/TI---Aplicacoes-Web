@@ -11,7 +11,54 @@
 
     <link rel="stylesheet" href="estilos.css">
     <script src="index2.js"></script>
+<<<<<<< HEAD
 
+=======
+    <script src="login.js"></script>
+    <script src="meuPerfil.js"></script>
+    <script>
+        // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+        if (!usuarioCorrente.login) {
+            window.location.href = LOGIN_URL;
+        }
+
+        function exibeUsuarios() {
+            
+            // Popula a tabela com os registros do banco de dados
+            let listaUsuarios = '';
+            for (i = 0; i < db_usuarios.usuarios.length; i++) {
+                let usuario = db_usuarios.usuarios[i];
+                listaUsuarios += `<tr><td scope="row">${usuario.nome}</td><td>${usuario.login}</td><td>${usuario.email}</td></tr>`;
+            }
+
+            // Substitui as linhas do corpo da tabela
+            document.getElementById("table-usuarios").innerHTML = listaUsuarios
+
+        }
+
+        function initPage() {
+
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', logoutUser);
+
+            // Informa o nome do usuário logado
+            document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
+
+            // Lista os usuários 
+            exibeUsuarios ();
+        }
+
+        // Associa ao evento de carga da página a função para verificar se o usuário está logado
+        window.addEventListener('load', initPage);
+        function initPage() {
+
+// Associa a função de logout ao botão
+document.getElementById('btn_perfil').addEventListener('click', Perfil);
+
+
+}
+    </script>
+>>>>>>> versao 2
 </head>
 
 
@@ -22,6 +69,10 @@
         <div class="row tester">
 
             <div class="col-12 header_area">
+<<<<<<< HEAD
+=======
+                
+>>>>>>> versao 2
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-4 col-lg-2 " id="logo-area">
                         <img src="imgs/logo.png " class="logo">
@@ -29,12 +80,28 @@
                     <div class="col-12 col-sm-12 col-md-8 col-lg-10 memu_area">
                         <nav class="nav nav-pills flex-column flex-sm-row">
 
+<<<<<<< HEAD
                             <a class="flex-sm-fill text-sm-center nav-link " src="index.html" href="index.html">Home</a>
                             <a class="flex-sm-fill text-sm-center nav-link"  src="denuncias.html" href="denuncias.html">Denúncias</a>
                             <a class="flex-sm-fill text-sm-center nav-link"  src="relatos.html" href="relatos.html">Relatos</a>
                             <a class="flex-sm-fill text-sm-center nav-link" href="dicas.html">Dicas</a>
                             <a class="flex-sm-fill text-sm-center nav-link " href="ongs.html">ONGs parceiras</a>
                             
+=======
+                            <a class="flex-sm-fill text-sm-center nav-link "  href="home.html">Home</a>
+                            <a class="flex-sm-fill text-sm-center nav-link"   href="denuncias.html">Denúncias</a>
+                            <a class="flex-sm-fill text-sm-center nav-link"   href="relatos.html">Relatos</a>
+                            <a class="flex-sm-fill text-sm-center nav-link" href="dicas.html">Dicas</a>
+                            <a class="flex-sm-fill text-sm-center nav-link " href="ongs.html">ONGs parceiras</a>
+                            
+                            <img class="flex-sm-fill text-sm-center nav-link logout" id="btn_perfil"
+                                src="imgs/user.png " href="meuPerfil.html">
+                        </nav>
+                        <nav class="nav nav-pills flex-column flex-sm-row">
+                            <img class="flex-sm-fill text-sm-center nav-link logout" id="btn_logout"
+                                src="imgs/sair.png ">
+
+>>>>>>> versao 2
                         </nav>
                     </div>
                 </div>

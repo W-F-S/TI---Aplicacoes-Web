@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title>Blog Dog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="estilos.css">
+    <script src="login.js"></script>
+    <script>
+        // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+        if (!usuarioCorrente.login) {
+            window.location.href = LOGIN_URL;
+        }
+
+        function exibeUsuarios() {
+            
+            // Popula a tabela com os registros do banco de dados
+            let listaUsuarios = '';
+            for (i = 0; i < db_usuarios.usuarios.length; i++) {
+                let usuario = db_usuarios.usuarios[i];
+                listaUsuarios += `<tr><td scope="row">${usuario.nome}</td><td>${usuario.login}</td><td>${usuario.email}</td></tr>`;
+            }
+
+            // Substitui as linhas do corpo da tabela
+            document.getElementById("table-usuarios").innerHTML = listaUsuarios
+
+        }
+
+        function initPage() {
+
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', logoutUser);
+
+            // Informa o nome do usuário logado
+            document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
+
+            // Lista os usuários 
+            exibeUsuarios ();
+        }
+
+        // Associa ao evento de carga da página a função para verificar se o usuário está logado
+        window.addEventListener('load', initPage);
+    </script>
+
+</head>
+
+
+<body onload="init()">
+
+    <header class=" header">
+
+        <div class="row tester">
+
+            <div class="col-12 header_area">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-2 " id="logo-area">
+                        <img src="imgs/logo.png " class="logo">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-10 memu_area">
+                        <nav class="nav nav-pills flex-column flex-sm-row">
+
+                            <a class="flex-sm-fill text-sm-center nav-link " href="home.html">Home</a>
+                            <a class="flex-sm-fill text-sm-center nav-link"   href="denuncias.html">Denúncias</a>
+                            <a class="flex-sm-fill text-sm-center nav-link"   href="relatos.html">Relatos</a>
+                            <a class="flex-sm-fill text-sm-center nav-link" href="dicas.html">Dicas</a>
+                            <a class="flex-sm-fill text-sm-center nav-link active" href="ongs.html">ONGs parceiras</a>
+                            <img class="flex-sm-fill text-sm-center nav-link logout" id="btn_logout" src="imgs/sair.png " >
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="container main">
+
+        <div class="row">
+
+            <div class="col-12">
+
+                <!--Duas colunas do carrosel e dos botões-->
+             
+
+                <!--Card de anuncio-->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1> Meu Perfil </h1>
+                        <h1 class="subtit2">Minhas ONGs cadastradas:</h1>
+                        <table id="grid-parceiros" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <td scope="col">#</td>
+                                    <td scope="col">Nome da ONG</td>
+                                    <td scope="col">Cidade</td>
+                                </tr>
+                            </thead>
+                            <tbody id="table-parceiros">
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                
+                                <input type="button" class="btn btn-danger" id="btnDelete" value="Cancelar Cadastro">
+                                
+    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                    <h1 class="subtit2">Minhas denúncias:</h1>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="grid-contatos" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Telefone</th>
+                                        <th scope="col">E-mail</th>
+                                        <th scope="col">Cidade</th>
+                                        <th scope="col">Espécie do animal</th>
+                                        <th scope="col">Tipo de denúncia</th>
+                                        <th scope="col">Informações complementares</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-contatos">
+                                    <tr>
+                                        <td scope="row">1</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <script src="app2.js"></script>
+                <script>
+                    function exibeParceiro() {
+                        // Remove todas as linhas do corpo da tabela
+                        $("#table-parceiros").html("");
+    
+                        // Popula a tabela com os registros do banco de dados
+                        if (usuarioCorrente.login == 'admin') {
+                            for (i = 0; i < db.data.length; i++) {
+                                let parceiro = db.data[i];
+                                $("#table-parceiros").append(`<tr><td scope="row">${parceiro.id}</td>
+                                                        <td>${parceiro.ong}</td>
+                                                        <td>${parceiro.cidade}</td>
+                                                    </tr>`);
+                            }
+    
+                        } else {
+                            for (i =2; i < db.data.length; i++) {
+                                let parceiro = db.data[i];
+                                $("#table-parceiros").append(`<tr><td scope="row">${parceiro.id}</td>
+                                                        <td>${parceiro.ong}</td>
+                                                        <td>${parceiro.cidade}</td>
+                                                    </tr>`);
+                            }
+                        }
+    
+                    }
+    
+                    function init() {
+                        // Adiciona funções para tratar os eventos 
+                        $("#btnInsert").click(function () {
+                            // Verfica se o formulário está preenchido corretamente
+                            if (!$('#form-parceiro')[0].checkValidity()) {
+                                displayMessage("Preencha o formulário corretamente.");
+                                return;
+                            }
+    
+                            // Obtem os valores dos campos do formulário
+                            let campoNome = $("#inputNome").val();
+                            let campoTelefone = $("#inputTelefone").val();
+                            let campoEmail = $('#inputEmail').val();
+                            let campoCidade = $("#inputCidade").val();
+                            let campoOng = $('#inputOng').val();
+                            let campoInfo = $('#inputSite').val();
+                            let parceiro = {
+                                nome: campoNome,
+                                telefone: campoTelefone,
+                                email: campoEmail,
+                                cidade: campoCidade,
+                                ong: campoOng,
+                                info: campoInfo
+                            };
+    
+                            insertParceiro(parceiro);
+    
+                            // Reexibe os parceiros
+                            exibeParceiro();
+    
+                            // Limpa o formulario
+                            $("#form-parceiro")[0].reset();
+                        });
+    
+                        // Intercepta o click do botão Alterar
+                        $("#btnUpdate").click(function () {
+                            // Obtem os valores dos campos do formulário
+                            let campoId = $("#inputId").val();
+                            if (campoId == "") {
+                                displayMessage("Selecione um parceiro para ser alterado.");
+                                return;
+                            }
+                            let campoNome = $("#inputNome").val();
+                            let campoTelefone = $("#inputTelefone").val();
+                            let campoEmail = $("#inputEmail").val();
+                            let campoCidade = $("#inputCidade").val();
+                            let campoOng = $("#inputOng").val();
+                            let campoInfo = $('#inputSite').val();
+                            let parceiro = {
+                                nome: campoNome,
+                                telefone: campoTelefone,
+                                email: campoEmail,
+                                cidade: campoCidade,
+                                ong: campoOng,
+                                
+                                info: campoInfo
+                            };
+    
+                            updateParceiro(parseInt(campoId), parceiro);
+    
+                            // Reexibe os parceiros
+                            exibeParceiro();
+    
+                            // Limpa o formulario
+                            $("#form-parceiro")[0].reset();
+                        });
+    
+                        // Intercepta o click do botão Excluir
+                        $("#btnDelete").click(function () {
+                            let campoId = $("#inputId").val();
+                            if (campoId == "") {
+                                displayMessage("Selecione um parceiro a ser excluído.");
+                                return;
+                            }
+                            deleteParceiro(parseInt(campoId));
+    
+                            // Reexibe os parceiros
+                            exibeParceiro();
+    
+                            // Limpa o formulario
+                            $("#form-parceiro")[0].reset();
+                        });
+    
+                        // Intercepta o click do botão Listar parceiros
+                        $("#btnClear").click(function () {
+                            $("#form-parceiro")[0].reset();
+                        });
+    
+                        // Oculta a mensagem de aviso após alguns segundos
+                        $('#msg').bind("DOMSubtreeModified", function () {
+                    window.setTimeout(function () {
+                        $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                            $(this).remove();
+                        });
+                    }, 5000);
+                });
+    
+                        // Preenche o formulário quando o usuario clicar em uma linha da tabela 
+                        $("#grid-parceiros").on("click", "tr", function (e) {
+                            let linhaparceiro = this;
+                            colunas = linhaparceiro.querySelectorAll("td");
+    
+                            $("#inputId").val(colunas[0].innerText);
+                            $("#inputNome").val(colunas[1].innerText);
+                            $("#inputTelefone").val(colunas[2].innerText);
+                            $("#inputEmail").val(colunas[3].innerText);
+                            $("#inputCidade").val(colunas[4].innerText);
+                            $("#inputOng").val(colunas[5].innerText);
+                            
+                            $("#inputSite").val(colunas[6].innerText);
+                        });
+    
+                        exibeParceiro();
+                    }
+                </script>
+               
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+            <script src="app.js"></script>
+            <script>
+                function exibeContatos() {
+                    // Remove todas as linhas do corpo da tabela
+                    $("#table-contatos").html("");
+
+                    // Popula a tabela com os registros do banco de dados
+                    if (usuarioCorrente.login == 'admin') {
+                        for (i = 0; i < db.data.length; i++) {
+                            let contato = db.data[i];
+                            $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
+                                                    <td>${contato.nome}</td>
+                                                    <td>${contato.telefone}</td>
+                                                    <td>${contato.email}</td>
+                                                    <td>${contato.cidade}</td>
+                                                    <td>${contato.especie}</td>
+                                                    <td>${contato.categoria}</td>
+                                                    <td>${contato.info}</td>
+                                                </tr>`);
+                        }
+
+                    } else {
+                        
+                        for (i = 4; i < db.data.length; i++) {
+                            let contato = db.data[i];
+                            if(usuarioCorrente.id == contato.id  ){
+                            $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
+                                                    <td>${contato.nome}</td>
+                                                    <td>${contato.telefone}</td>
+                                                    <td>${contato.email}</td>
+                                                    <td>${contato.cidade}</td>
+                                                    <td>${contato.especie}</td>
+                                                    <td>${contato.categoria}</td>
+                                                    <td>${contato.info}</td>
+                                                </tr>`);
+                                            }
+                        }
+                            
+                            {
+                           
+                        
+                        }
+                        
+                    }
+
+                }
+
+                function init() {
+                    // Adiciona funções para tratar os eventos 
+                    $("#btnInsert").click(function () {
+                        // Verfica se o formulário está preenchido corretamente
+                        if (!$('#form-contato')[0].checkValidity()) {
+                            displayMessage("Preencha o formulário corretamente.");
+                            return;
+                        }
+
+                        // Obtem os valores dos campos do formulário
+                        let campoNome = $("#inputNome").val();
+                        let campoTelefone = $("#inputTelefone").val();
+                        let campoEmail = $('#inputEmail').val();
+                        let campoCidade = $("#inputCidade").val();
+                        let campoEspecie = $('#inputEspecie').val();
+                        let campoCategoria = $('#inputCategoria').val();
+                        let campoInfo = $('#inputSite').val();
+                        let contato = {
+                            nome: campoNome,
+                            telefone: campoTelefone,
+                            email: campoEmail,
+                            cidade: campoCidade,
+                            especie: campoEspecie,
+                            categoria: campoCategoria,
+                            info: campoInfo
+                        };
+
+                        insertContato(contato);
+
+                        // Reexibe os contatos
+                        exibeContatos();
+
+                        // Limpa o formulario
+                        $("#form-contato")[0].reset();
+                    });
+
+                    // Intercepta o click do botão Alterar
+                    $("#btnUpdate").click(function () {
+                        // Obtem os valores dos campos do formulário
+                        let campoId = $("#inputId").val();
+                        if (campoId == "") {
+                            displayMessage("Selecione um contato para ser alterado.");
+                            return;
+                        }
+                        let campoNome = $("#inputNome").val();
+                        let campoTelefone = $("#inputTelefone").val();
+                        let campoEmail = $("#inputEmail").val();
+                        let campoCidade = $("#inputCidade").val();
+                        let campoEspecie = $("#inputEspecie").val();
+                        let campoCategoria = $("#inputCategoria").val();
+                        let campoInfo = $('#inputSite').val();
+                        let contato = {
+                            nome: campoNome,
+                            telefone: campoTelefone,
+                            email: campoEmail,
+                            cidade: campoCidade,
+                            especie: campoEspecie,
+                            categoria: campoCategoria,
+                            info: campoInfo
+                        };
+
+                        updateContato(parseInt(campoId), contato);
+
+                        // Reexibe os contatos
+                        exibeContatos();
+
+                        // Limpa o formulario
+                        $("#form-contato")[0].reset();
+                    });
+
+                    // Intercepta o click do botão Excluir
+                    $("#btnDelete").click(function () {
+                        let campoId = $("#inputId").val();
+                        if (campoId == "") {
+                            displayMessage("Selecione um contato a ser excluído.");
+                            return;
+                        }
+                        deleteContato(parseInt(campoId));
+
+                        // Reexibe os contatos
+                        exibeContatos();
+
+                        // Limpa o formulario
+                        $("#form-contato")[0].reset();
+                    });
+
+                    // Intercepta o click do botão Listar Contatos
+                    $("#btnClear").click(function () {
+                        $("#form-contato")[0].reset();
+                    });
+
+                    // Oculta a mensagem de aviso após alguns segundos
+                    $('#msg').bind("DOMSubtreeModified", function () {
+                window.setTimeout(function () {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                        $(this).remove();
+                    });
+                }, 5000);
+            });
+
+                    // Preenche o formulário quando o usuario clicar em uma linha da tabela 
+                    $("#grid-contatos").on("click", "tr", function (e) {
+                        let linhaContato = this;
+                        colunas = linhaContato.querySelectorAll("td");
+
+                        $("#inputId").val(colunas[0].innerText);
+                        $("#inputNome").val(colunas[1].innerText);
+                        $("#inputTelefone").val(colunas[2].innerText);
+                        $("#inputEmail").val(colunas[3].innerText);
+                        $("#inputCidade").val(colunas[4].innerText);
+                        $("#inputEspecie").val(colunas[5].innerText);
+                        $("#inputCategoria").val(colunas[5].innerText);
+                        $("#inputSite").val(colunas[6].innerText);
+                    });
+
+                    exibeContatos();
+                }
+            </script>
+                
+                    
+            </div>
+            
+        </div>
+
+    </main>
+
+    <footer class="footer">
+
+        <div class="row">
+
+            <div class="col-12 footer_area">
+                Blog Dog - Todos os direitos reservados - 2020
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>

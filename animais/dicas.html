@@ -11,7 +11,55 @@
 
     <link rel="stylesheet" href="estilos.css">
     <script src="index.js"></script>
+<<<<<<< HEAD
     
+=======
+    <script src="login.js"></script>
+    <script src="meuPerfil.js"></script>
+    <script>
+        
+        // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+        if (!usuarioCorrente.login) {
+            window.location.href = LOGIN_URL;
+        }
+
+        function exibeUsuarios() {
+            
+            // Popula a tabela com os registros do banco de dados
+            let listaUsuarios = '';
+            for (i = 0; i < db_usuarios.usuarios.length; i++) {
+                let usuario = db_usuarios.usuarios[i];
+                listaUsuarios += `<tr><td scope="row">${usuario.nome}</td><td>${usuario.login}</td><td>${usuario.email}</td></tr>`;
+            }
+
+            // Substitui as linhas do corpo da tabela
+            document.getElementById("table-usuarios").innerHTML = listaUsuarios
+
+        }
+
+        function initPage() {
+
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', logoutUser);
+
+            // Informa o nome do usuário logado
+            document.getElementById('nomeUsuario').innerHTML = usuarioCorrente.nome;
+
+            // Lista os usuários 
+            exibeUsuarios ();
+        }
+
+        // Associa ao evento de carga da página a função para verificar se o usuário está logado
+        window.addEventListener('load', initPage);
+        function initPage() {
+
+// Associa a função de logout ao botão
+document.getElementById('btn_perfil').addEventListener('click', Perfil);
+
+
+}
+    </script>
+>>>>>>> versao 2
 </head>
 
 
@@ -29,12 +77,26 @@
                     <div class="col-12 col-sm-12 col-md-8 col-lg-10 memu_area">
                         <nav class="nav nav-pills flex-column flex-sm-row">
 
+<<<<<<< HEAD
                             <a class="flex-sm-fill text-sm-center nav-link "  href="index.html">Home</a>
+=======
+                            <a class="flex-sm-fill text-sm-center nav-link "  href="home.html">Home</a>
+>>>>>>> versao 2
                             <a class="flex-sm-fill text-sm-center nav-link"  href="denuncias.html">Denúncias</a>
                             <a class="flex-sm-fill text-sm-center nav-link "  href="relatos.html">Relatos</a>
                             <a class="flex-sm-fill text-sm-center nav-link active" href="#">Dicas</a>
                             <a class="flex-sm-fill text-sm-center nav-link"   href="ongs.html">ONGs parceiras</a>
+<<<<<<< HEAD
                             
+=======
+                            <img class="flex-sm-fill text-sm-center nav-link logout" id="btn_perfil"
+                                src="imgs/user.png " >
+                        </nav>
+                        <nav class="nav nav-pills flex-column flex-sm-row">
+                            <img class="flex-sm-fill text-sm-center nav-link logout" id="btn_logout"
+                                src="imgs/sair.png ">
+
+>>>>>>> versao 2
                         </nav>
                     </div>
                 </div>
@@ -112,6 +174,7 @@
 </div>
 
             </div>
+<<<<<<< HEAD
                <form id="dica"method="POST" action="https://formspree.io/blogdog000@gmail.com">
                
                 <div class="form-group">
@@ -121,6 +184,67 @@
                 <input class="btn btn-warning" id ="bt" type="submit" value="Enviar">
               </form>
               
+=======
+            <h1>Tem alguma boa dica? Compartilhe conosco!</h1>
+               <form >
+               
+               <div class="form-group row">
+                <div class="col-sm-4">
+                    <label for="inputId">ID</label>
+                    <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+                </div>
+                
+            </div>
+            <div class="form-group row">
+
+                <div class="col-sm-8">
+                    <label for="inputNome">Nome</label>
+                    <input type="text" class="form-control" id="inputNome" 
+                        placeholder="Informe seu nome">
+                </div>
+                
+                </div>
+                <div class="form-group row">
+
+                    <div class="col-sm-4">
+                        <label for="inputNome">Título da dica (*)</label>
+                        <input type="text" class="form-control" id="inputTit" 
+                            placeholder="Título" required>
+                    </div>
+                    <div class="col-sm-8">
+                        <label for="inputNome">Conteúdo da dica (*)</label>
+                        <input type="text" class="form-control" id="inputCont" 
+                            placeholder="Conteúdo" required>
+                    </div>
+                    </div>
+                    <div class="form-group row">
+
+                        
+                        <div class="col-sm-8">
+                            <label for="inputNome">Imagem</label>
+                            <input type="file"  id="inputImg" 
+                                placeholder="Conteúdo" required>
+                        </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                <small>(*) Campos obrigatórios</small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <input type="button" class="btn btn-success" id="btnInsert" value="Enviar">
+                                <input type="button" class="btn btn-warning" id="btnUpdate" value="Alterar dica">
+                                <input type="button" class="btn btn-danger" id="btnDelete" value="Cancelar dica">
+                                
+    
+                            </div>
+                        </div>
+            
+                
+              </form>
+            </div>
+>>>>>>> versao 2
             </div>
         </div>
     </div>

@@ -5,6 +5,40 @@ div>a{
     margin-top: 60px;
 }
 */
+<<<<<<< HEAD
+=======
+#btn_logout{
+    margin-left: 1030px;
+}
+#msg {
+    height: 60px;
+}
+#grid-contatos tbody {
+    cursor: pointer;
+}
+#grid-parceiros tbody {
+    cursor: pointer;
+}
+.btn-warning{
+    color: black!important;
+}
+.close tbody{
+    color: black!important;
+    
+}
+.logo2{
+    margin-left: 85px;
+}
+.logout{
+max-width: 75px;
+max-height: 45px;
+margin-bottom: 10px;
+cursor: pointer;
+}
+.logout:hover{
+    background-color: rgb(109, 110, 1);
+}
+>>>>>>> versao 2
 #gostei{
     background-color: green;
     margin-top: 10px;
@@ -129,7 +163,11 @@ button{
 
     
     .header{
+<<<<<<< HEAD
         max-height: 400px;
+=======
+        max-height: 475px;
+>>>>>>> versao 2
     }
 }
 @media screen and (max-width: 995px) {

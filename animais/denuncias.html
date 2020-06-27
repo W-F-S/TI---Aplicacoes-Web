@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 
+<<<<<<< HEAD
 <html lang="pt-br">
     
+=======
+<html lang="en">
+
+>>>>>>> versao 2
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="utf-8">
     <title>Blog Dog</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -17,6 +23,47 @@
 
 
 <body onload="init()"> 
+=======
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="estilos.css">
+    <script src="index.js"></script>
+    <script src="login.js"></script>
+    <script src="meuPerfil.js"></script>
+    <script>
+        
+        // Verifica se o usuário já esta logado e se negativo, redireciona para tela de login        
+        if (!usuarioCorrente.login) {
+            window.location.href = LOGIN_URL;
+        }
+
+
+
+        function initPage() {
+
+            // Associa a função de logout ao botão
+            document.getElementById('btn_logout').addEventListener('click', logoutUser);
+
+
+        }
+
+        // Associa ao evento de carga da página a função para verificar se o usuário está logado
+        window.addEventListener('load', initPage);
+        function initPage() {
+
+// Associa a função de logout ao botão
+document.getElementById('btn_perfil').addEventListener('click', Perfil);
+
+
+}
+    </script>
+</head>
+
+
+<body onload="init()">
+>>>>>>> versao 2
 
     <header class=" header">
 
@@ -30,12 +77,28 @@
                     <div class="col-12 col-sm-12 col-md-8 col-lg-10 memu_area">
                         <nav class="nav nav-pills flex-column flex-sm-row">
 
+<<<<<<< HEAD
                             <a class="flex-sm-fill text-sm-center nav-link " src="index.html" href="index.html">Home</a>
                             <a class="flex-sm-fill text-sm-center nav-link active" src="denuncias.html" href="denuncias.html">Denúncias</a>
                             <a class="flex-sm-fill text-sm-center nav-link" src="relatos.html" href="relatos.html">Relatos</a>
                             <a class="flex-sm-fill text-sm-center nav-link" href="dicas.html">Dicas</a>
                             <a class="flex-sm-fill text-sm-center nav-link" src="ongs.html" href="ongs.html">ONGs parceiras</a>
                             
+=======
+                            <a class="flex-sm-fill text-sm-center nav-link " href="home.html">Home</a>
+                            <a class="flex-sm-fill text-sm-center nav-link active" href="denuncias.html">Denúncias</a>
+                            <a class="flex-sm-fill text-sm-center nav-link" href="relatos.html">Relatos</a>
+                            <a class="flex-sm-fill text-sm-center nav-link" href="dicas.html">Dicas</a>
+                            <a class="flex-sm-fill text-sm-center nav-link" src="ongs.html" href="ongs.html">ONGs
+                                parceiras</a>
+                                <img class="flex-sm-fill text-sm-center nav-link logout" id="btn_perfil"
+                                src="imgs/user.png " >
+                        </nav>
+                        <nav class="nav nav-pills flex-column flex-sm-row">
+                            <img class="flex-sm-fill text-sm-center nav-link logout" id="btn_logout"
+                                src="imgs/sair.png ">
+
+>>>>>>> versao 2
                         </nav>
                     </div>
                 </div>
@@ -47,12 +110,21 @@
 
 
     <main class="container main">
+<<<<<<< HEAD
+=======
+        <div class="row">
+            <div id="msg" class="col-sm-10 offset-sm-1 ">
+                <!--<div class="alert alert-warning">Contato não encontrado.</div>-->
+            </div>
+        </div>
+>>>>>>> versao 2
 
         <div class="row">
 
             <div class="col-12">
 
                 <!--Duas colunas do carrosel e dos botões-->
+<<<<<<< HEAD
              
 
                 <!--Card de anuncio-->
@@ -157,10 +229,141 @@
                 for (i = 0; i < db.data.length; i++) {
                     let contato = db.data[i];    
                     $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
+=======
+
+
+                <!--Card de anuncio-->
+
+                <h1> Denúncias </h1>
+
+                <form id="form-contato">
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <label for="inputId">ID</label>
+                            <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+                        </div>
+                        
+                    </div>
+                    <div class="form-group row">
+
+                        <div class="col-sm-8">
+                            <label for="inputNome">Nome (*)</label>
+                            <input type="text" class="form-control" id="inputNome" required
+                                placeholder="Informe seu nome">
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="inputTelefone">Telefone (*)</label>
+                            <input type="text" class="form-control" id="inputTelefone" required
+                                placeholder="Ex.: (00) 00000-0000">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+
+                        <div class="col-sm-8">
+                            <label for="inputEmail">E-mail (*)</label>
+                            <input type="email" class="form-control" id="inputEmail" required
+                                placeholder="name@example.com">
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="inputCidade">Cidade</label>
+                            <input type="text" class="form-control" id="inputCidade"
+                                placeholder="Informe a sua cidade ">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputEspecie">Selecione a espécie do animal</label>
+                            <select type="text"class="form-control" id="inputEspecie">
+                                <option>Gato</option>
+                                <option>Cachorro</option>
+                                <option>Outro tipo de animal</option>
+
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputCategoria">Selecione o tipo de denúncia</label>
+                            <select type="text"class="form-control" id="inputCategoria">
+                                <option>Abandono</option>
+                                <option>Agressão</option>
+
+                            </select>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <label for="inputSite">Informações complementares</label>
+                            <input type="text" class="form-control" id="inputSite" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <small>(*) Campos obrigatórios</small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <input type="button" class="btn btn-success" id="btnInsert" value="Inserir denúncia">
+                            <input type="button" class="btn btn-warning" id="btnUpdate" value="Alterar denúncia">
+                            <input type="button" class="btn btn-danger" id="btnDelete" value="Excluir denúncia">
+                            
+
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="grid-contatos" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Telefone</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">Cidade</th>
+                                    <th scope="col">Espécie do animal</th>
+                                    <th scope="col">Tipo de denúncia</th>
+                                    <th scope="col">Informações complementares</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-contatos">
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+            <script src="app.js"></script>
+            <script>
+                function exibeContatos() {
+                    // Remove todas as linhas do corpo da tabela
+                    $("#table-contatos").html("");
+
+                    // Popula a tabela com os registros do banco de dados
+                    if (usuarioCorrente.login == 'admin') {
+                        for (i = 0; i < db.data.length; i++) {
+                            let contato = db.data[i];
+                            $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
+>>>>>>> versao 2
                                                     <td>${contato.nome}</td>
                                                     <td>${contato.telefone}</td>
                                                     <td>${contato.email}</td>
                                                     <td>${contato.cidade}</td>
+<<<<<<< HEAD
                                                     <td>${contato.categoria}</td>
                                                     <td>${contato.info}</td>
                                                 </tr>`);
@@ -280,6 +483,162 @@
             </div>
         </div>
       
+=======
+                                                    <td>${contato.especie}</td>
+                                                    <td>${contato.categoria}</td>
+                                                    <td>${contato.info}</td>
+                                                </tr>`);
+                        }
+
+                    } else {
+                        
+                        for (i = 4; i < db.data.length; i++) {
+                            let contato = db.data[i];
+                            if(usuarioCorrente.id == contato.id  ){
+                            $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
+                                                    <td>${contato.nome}</td>
+                                                    <td>${contato.telefone}</td>
+                                                    <td>${contato.email}</td>
+                                                    <td>${contato.cidade}</td>
+                                                    <td>${contato.especie}</td>
+                                                    <td>${contato.categoria}</td>
+                                                    <td>${contato.info}</td>
+                                                </tr>`);
+                                            }
+                        }
+                            
+                            {
+                           
+                        
+                        }
+                        
+                    }
+
+                }
+
+                function init() {
+                    // Adiciona funções para tratar os eventos 
+                    $("#btnInsert").click(function () {
+                        // Verfica se o formulário está preenchido corretamente
+                        if (!$('#form-contato')[0].checkValidity()) {
+                            displayMessage("Preencha o formulário corretamente.");
+                            return;
+                        }
+
+                        // Obtem os valores dos campos do formulário
+                        let campoNome = $("#inputNome").val();
+                        let campoTelefone = $("#inputTelefone").val();
+                        let campoEmail = $('#inputEmail').val();
+                        let campoCidade = $("#inputCidade").val();
+                        let campoEspecie = $('#inputEspecie').val();
+                        let campoCategoria = $('#inputCategoria').val();
+                        let campoInfo = $('#inputSite').val();
+                        let contato = {
+                            nome: campoNome,
+                            telefone: campoTelefone,
+                            email: campoEmail,
+                            cidade: campoCidade,
+                            especie: campoEspecie,
+                            categoria: campoCategoria,
+                            info: campoInfo
+                        };
+
+                        insertContato(contato);
+
+                        // Reexibe os contatos
+                        exibeContatos();
+
+                        // Limpa o formulario
+                        $("#form-contato")[0].reset();
+                    });
+
+                    // Intercepta o click do botão Alterar
+                    $("#btnUpdate").click(function () {
+                        // Obtem os valores dos campos do formulário
+                        let campoId = $("#inputId").val();
+                        if (campoId == "") {
+                            displayMessage("Selecione um contato para ser alterado.");
+                            return;
+                        }
+                        let campoNome = $("#inputNome").val();
+                        let campoTelefone = $("#inputTelefone").val();
+                        let campoEmail = $("#inputEmail").val();
+                        let campoCidade = $("#inputCidade").val();
+                        let campoEspecie = $("#inputEspecie").val();
+                        let campoCategoria = $("#inputCategoria").val();
+                        let campoInfo = $('#inputSite').val();
+                        let contato = {
+                            nome: campoNome,
+                            telefone: campoTelefone,
+                            email: campoEmail,
+                            cidade: campoCidade,
+                            especie: campoEspecie,
+                            categoria: campoCategoria,
+                            info: campoInfo
+                        };
+
+                        updateContato(parseInt(campoId), contato);
+
+                        // Reexibe os contatos
+                        exibeContatos();
+
+                        // Limpa o formulario
+                        $("#form-contato")[0].reset();
+                    });
+
+                    // Intercepta o click do botão Excluir
+                    $("#btnDelete").click(function () {
+                        let campoId = $("#inputId").val();
+                        if (campoId == "") {
+                            displayMessage("Selecione um contato a ser excluído.");
+                            return;
+                        }
+                        deleteContato(parseInt(campoId));
+
+                        // Reexibe os contatos
+                        exibeContatos();
+
+                        // Limpa o formulario
+                        $("#form-contato")[0].reset();
+                    });
+
+                    // Intercepta o click do botão Listar Contatos
+                    $("#btnClear").click(function () {
+                        $("#form-contato")[0].reset();
+                    });
+
+                    // Oculta a mensagem de aviso após alguns segundos
+                    $('#msg').bind("DOMSubtreeModified", function () {
+                window.setTimeout(function () {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                        $(this).remove();
+                    });
+                }, 5000);
+            });
+
+                    // Preenche o formulário quando o usuario clicar em uma linha da tabela 
+                    $("#grid-contatos").on("click", "tr", function (e) {
+                        let linhaContato = this;
+                        colunas = linhaContato.querySelectorAll("td");
+
+                        $("#inputId").val(colunas[0].innerText);
+                        $("#inputNome").val(colunas[1].innerText);
+                        $("#inputTelefone").val(colunas[2].innerText);
+                        $("#inputEmail").val(colunas[3].innerText);
+                        $("#inputCidade").val(colunas[4].innerText);
+                        $("#inputEspecie").val(colunas[5].innerText);
+                        $("#inputCategoria").val(colunas[5].innerText);
+                        $("#inputSite").val(colunas[6].innerText);
+                    });
+
+                    exibeContatos();
+                }
+            </script>
+
+        </div>
+        </div>
+
+>>>>>>> versao 2
     </main>
 
     <footer class="footer">
@@ -308,5 +667,9 @@
 </body>
 
 
+<<<<<<< HEAD
 </html>
 
+=======
+</html>
+>>>>>>> versao 2
